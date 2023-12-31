@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <script type="text/javascript" src="dabar.js"></script>
+    <!--script type="text/javascript" src="https://www.google.com/jsapi"></script-->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages: ['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable( dabar );
+
+        var options = {
+          title: 'Electric Vehicle Population Data by Make',
+          chartArea: { left:'10%',top:'10%', width: '65%', height: '65%' },
+          annotations: {
+            textStyle: {
+              fontSize: 12
+            }
+          },
+          fontSize: 12,
+          bar: { groupWidth: "80%" }
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 1000px; height: 800px;"></div>
+  </body>
+</html>
